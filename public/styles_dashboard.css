@@ -1,0 +1,165 @@
+html, body {
+    height: 100%;
+    margin: 0;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+}
+
+.container-fluid {
+    display: flex;
+    flex: 1; 
+}
+
+.form-container {
+    display: none;
+}
+
+.row {
+    flex: 1; 
+}
+
+#left-menu, #right-menu {
+    height: 100%; 
+    padding-top: 1rem; 
+    position: sticky; 
+    top: 0;
+}
+
+#left-menu {
+    background-color: #f8f9fa; 
+    flex: 0 0 15%;
+}
+
+#right-menu {
+    background-color: #f8f9fa; 
+    flex: 0 0 15%; 
+}
+
+main {
+    padding: 2rem;
+    background-color: #ffffff; 
+    flex: 1;
+}
+
+h4 {
+    margin-bottom: 1rem;
+}
+
+.nav-link {
+    padding: 0.5rem 1rem;
+    color: #007bff;
+}
+
+.nav-link.active {
+    color: #0056b3;
+    font-weight: bold;
+}
+
+special-footer {
+    margin-top: auto;
+}
+
+#left-menu {
+    background-color: #f8f9fa; 
+    flex: 0 0 15%; 
+    padding-top: 2rem; 
+}
+
+.menu-buttons {
+    display: flex;
+    flex-direction: column; 
+    gap: 0.5rem;
+}
+
+.menu-buttons .btn {
+    border-radius: 0; 
+    padding: 1rem; 
+}
+
+.menu-buttons .btn:hover {
+    background-color: #e2e6ea;
+}
+
+/* New CSS */
+.metrics-container {
+    display: flex;
+    gap: 1rem;
+    padding: 1rem;
+}
+
+.metric-box {
+    background-color: #dcf2ff;
+    border: 1px solid #ccc;
+    padding: 1rem;
+    border-radius: 5px;
+    flex: 1;
+    text-align: center;
+}
+
+.metric-number {
+    color: green;
+    font-weight: bold;
+}
+
+.metric-box-new {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Centers items horizontally */
+    border: 1px solid #ccc; /* Adds a border */
+    padding: 1rem;
+    border-radius: 8px; /* Rounds the corners */
+    width: 100px; /* Adjust width as needed */
+    text-align: center;
+}
+
+.metric-box-new .label {
+    margin-bottom: 0.5rem; /* Adds space between label and value */
+    font-weight: bold; /* Makes label bold */
+}
+
+.metric-box-new .value {
+    font-size: 1.5rem; /* Increases font size of value */
+    color: #333; /* Sets color for value text */
+}
+
+.new-metrics-container {
+    display: flex;
+    gap: 0.5rem; /* Reduced gap between metrics */
+    padding: 0.5rem; /* Reduced padding */
+}
+
+.new-metric-box {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Centers items horizontally */
+    background-color: #dcf2ff;
+    border: 1px solid #ccc;
+    padding: 0.5rem; /* Reduced padding */
+    border-radius: 3px; /* Reduced border radius */
+    width: 80px; /* Reduced width */
+    text-align: center;
+}
+
+.new-metric-box .label {
+    margin-bottom: 0.25rem; /* Reduced space between label and value */
+    font-size: 0.75rem; /* Smaller font size for label */
+    font-weight: bold; /* Keeps label bold */
+}
+
+.new-metric-box .value {
+    font-size: 1rem; /* Smaller font size for value */
+    color: #333; /* Keeps color for value text */
+}
+
+.chart {
+    width: 600px;
+    height: 600px;
+  }
+  
+  .chart canvas {
+    width: 100% !important;
+    height: 100% !important;
+  }

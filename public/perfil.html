@@ -33,7 +33,50 @@
             </nav>
         </div>
     </header>
-
+    <main class="container mt-5">
+        <div class="profile-container">
+            <div class="profile-header">
+                <h2>Perfil</h2>
+               <a href="editarPerfil.html"> <button class="btn btn-primary btn-edit-profile">Editar Perfil</button></a>
+                <img src="/images/perf1.png" alt="Foto de perfil">
+            </div>
+            <form>
+                <div class="form-group">
+                    <label for="name">Nombre</label>
+                    <input type="text" class="form-control" id="name" placeholder="Enrique">
+                </div>
+                <div class="form-group">
+                    <label for="surname">Apellidos</label>
+                    <input type="text" class="form-control" id="surname" placeholder="Morales">
+                </div>
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" class="form-control" id="email" placeholder="enriquemorales@gmail.com">
+                </div>
+                <div class="form-group">
+                    <label for="cedula">Cédula</label>
+                    <input type="text" class="form-control" id="cedula" placeholder="1-1834-0948">
+                </div>
+                <div class="form-group">
+                    <label for="address">Dirección exacta</label>
+                    <input type="text" class="form-control" id="address" placeholder="300 metros norte del templo católico de Santiago, Paraíso, Cartago">
+                </div>
+                <div class="form-group">
+                    <label for="phone">Número de contacto</label>
+                    <input type="text" class="form-control" id="phone" placeholder="88063526">
+                </div>
+                <div class="form-group">
+                    <label for="password">Contraseña</label>
+                    <div class="input-group">
+                        <input type="password" class="form-control" id="password" placeholder="*****************">
+                        <div class="input-group-append">
+                            <span class="input-group-text btn-show-password" onclick="togglePassword()">Mostrar</span>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </main>
     <footer>
         <div id="footer" class="footer bg-dark text-white">
             <div class="container">
@@ -56,6 +99,12 @@
             </div>
         </div>
     </footer>
-
+    <script>
+        function togglePassword() {
+            const passwordField = document.getElementById('password');
+            const type = passwordField.type === 'password' ? 'text' : 'password';
+            passwordField.type = type;
+        }
+    </script>
 </body>
 </html>

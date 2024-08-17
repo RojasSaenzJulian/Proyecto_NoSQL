@@ -1,0 +1,277 @@
+BASE DE DATOS:
+
+const database = 'clinica';
+use(database);
+
+db.usuarios.insertMany([
+  {
+    "_id": {
+      "$oid": "66c04792a12845de8e7ca796"
+    },
+    "nombre": "Juan",
+    "apellido": "Perez",
+    "email": "juan@example.com",
+    "tipoUsuario": "Paciente"
+  },
+  {
+    "_id": {
+      "$oid": "66c04792a12845de8e7ca797"
+    },
+    "nombre": "Ana",
+    "apellido": "Gomez",
+    "email": "ana@example.com",
+    "tipoUsuario": "Dentista"
+  },
+  {
+    "_id": {
+      "$oid": "66c04792a12845de8e7ca798"
+    },
+    "nombre": "Carlos",
+    "apellido": "Lopez",
+    "email": "carlos@example.com",
+    "tipoUsuario": "Administrador"
+  },
+  {
+    "_id": {
+      "$oid": "66c04792a12845de8e7ca799"
+    },
+    "nombre": "Maria",
+    "apellido": "Rodriguez",
+    "email": "maria@example.com",
+    "tipoUsuario": "Paciente"
+  },
+  {
+    "_id": {
+      "$oid": "66c04792a12845de8e7ca79a"
+    },
+    "nombre": "Luis",
+    "apellido": "Martinez",
+    "email": "luis@example.com",
+    "tipoUsuario": "Dentista"
+  }
+]);
+
+db.dentistas.insertMany([
+  {
+    "_id": ObjectId("66c04792a12845de8e7ca7b4"),
+    "nombre": "Dr. Carlos Fernández",
+    "apellido": "Fernández",
+    "email": "carlos.fernandez@clinica.com",
+    "especialidad": "Ortodoncia",
+    "usuarioId": ObjectId("66c04792a12845de8e7ca798")
+  },
+  {
+    "_id": ObjectId("66c04792a12845de8e7ca7b5"),
+    "nombre": "Dra. Lucia Gómez",
+    "apellido": "Gómez",
+    "email": "lucia.gomez@clinica.com",
+    "especialidad": "Endodoncia",
+    "usuarioId": ObjectId("66c04792a12845de8e7ca799")
+  },
+  {
+    "_id": ObjectId("66c04792a12845de8e7ca7b6"),
+    "nombre": "Dr. Juan Pérez",
+    "apellido": "Pérez",
+    "email": "juan.perez@clinica.com",
+    "especialidad": "Implantología",
+    "usuarioId": ObjectId("66c04792a12845de8e7ca79a")
+  },
+  {
+    "_id": ObjectId("66c04792a12845de8e7ca7b7"),
+    "nombre": "Dra. Ana Ramírez",
+    "apellido": "Ramírez",
+    "email": "ana.ramirez@clinica.com",
+    "especialidad": "Odontología general",
+    "usuarioId": ObjectId("66c04792a12845de8e7ca79b")
+  },
+  {
+    "_id": ObjectId("66c04792a12845de8e7ca7b8"),
+    "nombre": "Dr. Roberto López",
+    "apellido": "López",
+    "email": "roberto.lopez@clinica.com",
+    "especialidad": "Cirugía oral",
+    "usuarioId": ObjectId("66c04792a12845de8e7ca79c")
+  }
+]);
+
+db.citas.insertMany([
+  {
+    "_id": ObjectId("66c04792a12845de8e7ca7d1"),
+    "pacienteId": ObjectId("66c04792a12845de8e7ca798"),
+    "dentistaId": ObjectId("66c04792a12845de8e7ca7b4"),
+    "fecha": ISODate("2024-08-17T10:00:00Z"),
+    "hora": "10:00",
+    "motivo": "Revisión de ortodoncia"
+  },
+  {
+    "_id": ObjectId("66c04792a12845de8e7ca7d2"),
+    "pacienteId": ObjectId("66c04792a12845de8e7ca799"),
+    "dentistaId": ObjectId("66c04792a12845de8e7ca7b5"),
+    "fecha": ISODate("2024-08-18T11:00:00Z"),
+    "hora": "11:00",
+    "motivo": "Tratamiento de conducto"
+  },
+  {
+    "_id": ObjectId("66c04792a12845de8e7ca7d3"),
+    "pacienteId": ObjectId("66c04792a12845de8e7ca79a"),
+    "dentistaId": ObjectId("66c04792a12845de8e7ca7b6"),
+    "fecha": ISODate("2024-08-19T09:00:00Z"),
+    "hora": "09:00",
+    "motivo": "Consulta para implantes"
+  },
+  {
+    "_id": ObjectId("66c04792a12845de8e7ca7d4"),
+    "pacienteId": ObjectId("66c04792a12845de8e7ca79b"),
+    "dentistaId": ObjectId("66c04792a12845de8e7ca7b7"),
+    "fecha": ISODate("2024-08-20T08:30:00Z"),
+    "hora": "08:30",
+    "motivo": "Revisión dental general"
+  },
+  {
+    "_id": ObjectId("66c04792a12845de8e7ca7d5"),
+    "pacienteId": ObjectId("66c04792a12845de8e7ca79c"),
+    "dentistaId": ObjectId("66c04792a12845de8e7ca7b8"),
+    "fecha": ISODate("2024-08-21T14:00:00Z"),
+    "hora": "14:00",
+    "motivo": "Consulta para extracción de muelas"
+  }
+]);
+
+db.historialMedico.insertMany([
+  {
+    "_id": ObjectId("66c04792a12845de8e7ca7e1"),
+    "pacienteId": ObjectId("66c04792a12845de8e7ca798"),
+    "diagnostico": "Maloclusión dental",
+    "tratamientos": [
+      {
+        "tratamientoId": ObjectId("66c04792a12845de8e7ca7f1"),
+        "fecha": ISODate("2024-07-10T10:00:00Z"),
+        "comentarios": "Uso de brackets metálicos"
+      }
+    ],
+    "comentariosAdicionales": "Se recomienda seguir el tratamiento ortodóncico"
+  },
+  {
+    "_id": ObjectId("66c04792a12845de8e7ca7e2"),
+    "pacienteId": ObjectId("66c04792a12845de8e7ca799"),
+    "diagnostico": "Caries dental profunda",
+    "tratamientos": [
+      {
+        "tratamientoId": ObjectId("66c04792a12845de8e7ca7f2"),
+        "fecha": ISODate("2024-07-15T11:30:00Z"),
+        "comentarios": "Realización de endodoncia"
+      }
+    ],
+    "comentariosAdicionales": "Se sugiere revisión cada seis meses"
+  },
+  {
+    "_id": ObjectId("66c04792a12845de8e7ca7e3"),
+    "pacienteId": ObjectId("66c04792a12845de8e7ca79a"),
+    "diagnostico": "Pérdida de dientes",
+    "tratamientos": [
+      {
+        "tratamientoId": ObjectId("66c04792a12845de8e7ca7f3"),
+        "fecha": ISODate("2024-07-20T09:00:00Z"),
+        "comentarios": "Implante de dientes"
+      }
+    ],
+    "comentariosAdicionales": "Revisar la evolución del implante en 3 meses"
+  },
+  {
+    "_id": ObjectId("66c04792a12845de8e7ca7e4"),
+    "pacienteId": ObjectId("66c04792a12845de8e7ca79b"),
+    "diagnostico": "Gingivitis",
+    "tratamientos": [
+      {
+        "tratamientoId": ObjectId("66c04792a12845de8e7ca7f4"),
+        "fecha": ISODate("2024-07-25T08:00:00Z"),
+        "comentarios": "Limpieza dental profunda"
+      }
+    ],
+    "comentariosAdicionales": "Uso de enjuague bucal y cepillado frecuente"
+  },
+  {
+    "_id": ObjectId("66c04792a12845de8e7ca7e5"),
+    "pacienteId": ObjectId("66c04792a12845de8e7ca79c"),
+    "diagnostico": "Extracción de muelas del juicio",
+    "tratamientos": [
+      {
+        "tratamientoId": ObjectId("66c04792a12845de8e7ca7f5"),
+        "fecha": ISODate("2024-07-30T14:00:00Z"),
+        "comentarios": "Extracción quirúrgica"
+      }
+    ],
+    "comentariosAdicionales": "Revisar en una semana"
+  }
+]);
+
+db.tratamientos.insertMany([
+  {
+    "_id": ObjectId("66c04792a12845de8e7ca7f1"),
+    "nombre": "Ortodoncia",
+    "descripcion": "Uso de aparatos para corregir maloclusiones",
+    "costo": 1500
+  },
+  {
+    "_id": ObjectId("66c04792a12845de8e7ca7f2"),
+    "nombre": "Endodoncia",
+    "descripcion": "Tratamiento de conductos radiculares",
+    "costo": 1200
+  },
+  {
+    "_id": ObjectId("66c04792a12845de8e7ca7f3"),
+    "nombre": "Implantes dentales",
+    "descripcion": "Colocación de implantes para reemplazar dientes",
+    "costo": 3000
+  },
+  {
+    "_id": ObjectId("66c04792a12845de8e7ca7f4"),
+    "nombre": "Limpieza dental",
+    "descripcion": "Limpieza profesional para prevenir enfermedades",
+    "costo": 500
+  },
+  {
+    "_id": ObjectId("66c04792a12845de8e7ca7f5"),
+    "nombre": "Extracción de muelas del juicio",
+    "descripcion": "Extracción quirúrgica de las muelas del juicio",
+    "costo": 800
+  }
+]);
+
+db.pagos.insertMany([
+  {
+    "_id": ObjectId("66c04792a12845de8e7ca801"),
+    "pacienteId": ObjectId("66c04792a12845de8e7ca798"),
+    "fecha": ISODate("2024-08-10T09:00:00Z"),
+    "monto": 1500,
+    "metodoPago": "Tarjeta de crédito"
+  },
+  {
+    "_id": ObjectId("66c04792a12845de8e7ca802"),
+    "pacienteId": ObjectId("66c04792a12845de8e7ca799"),
+    "fecha": ISODate("2024-08-12T11:00:00Z"),
+    "monto": 1200,
+    "metodoPago": "Efectivo"
+  },
+  {
+    "_id": ObjectId("66c04792a12845de8e7ca803"),
+    "pacienteId": ObjectId("66c04792a12845de8e7ca79a"),
+    "fecha": ISODate("2024-08-14T10:00:00Z"),
+    "monto": 3000,
+    "metodoPago": "Transferencia bancaria"
+  },
+  {
+    "_id": ObjectId("66c04792a12845de8e7ca804"),
+    "pacienteId": ObjectId("66c04792a12845de8e7ca79b"),
+    "fecha": ISODate("2024-08-16T09:30:00Z"),
+    "monto": 500,
+    "metodoPago": "Tarjeta de débito"
+  },
+  {
+    "_id": ObjectId("66c04792a12845de8e7ca805"),
+    "pacienteId": ObjectId("66c04792a12845de8e7ca79c"),
+    "fecha": ISODate("2024-08-17T14:30:00Z"),
+    "monto": 800,
+    "metodoPago": "Efectivo"
+  }
+]);

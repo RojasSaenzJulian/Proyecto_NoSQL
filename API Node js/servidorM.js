@@ -384,7 +384,7 @@ app.delete('/pagos/:id', async (req, res) => {
 // ver historialMedico
 app.get('/historialMedico', async (req, res) => {
     try {
-        const historialMedico = await Pagos.find();
+        const historialMedico = await HistorialMedico.find();
         res.json(historialMedico);
     } catch (error) {
         res.status(500).json({message: error.message});
@@ -393,7 +393,7 @@ app.get('/historialMedico', async (req, res) => {
 // ver historialMedico específico
 app.get('/historialMedico/:id', async (req, res) => {
     try {
-        const historialMedico = await Pagos.findById(req.params.id);
+        const historialMedico = await HistorialMedico.findById(req.params.id);
 
         if(!historialMedico) {
             res.status(404).json({message: "Pago no encontrado"});
@@ -409,7 +409,7 @@ app.get('/historialMedico/:id', async (req, res) => {
 // agregar historialMedico
 app.post('/historialMedico', async (req, res) => {
     try {
-        const newhistorialMedico =  new Pagos(req.body);
+        const newhistorialMedico =  new HistorialMedico(req.body);
         await newhistorialMedico.save();
         res.status(201).json(newhistorialMedico);
     } catch (error) {
@@ -421,7 +421,7 @@ app.post('/historialMedico', async (req, res) => {
 // actualizar historialMedico
 app.put('/historialMedico/:id', async (req, res) => {
     try {
-        const historialMedico = await Pagos.findByIdAndUpdate(req.params.id, req.body, {new: true, runValidators: true});
+        const historialMedico = await HistorialMedico.findByIdAndUpdate(req.params.id, req.body, {new: true, runValidators: true});
 
         if(!historialMedico) {
             res.status(404).json({message: "Pago no encontrado"});
@@ -437,13 +437,13 @@ app.put('/historialMedico/:id', async (req, res) => {
 // eliminar historialMedico
 app.delete('/historialMedico/:id', async (req, res) => {
     try {
-        const historialMedico = await Pagos.findByIdAndDelete(req.params.id);
+        const historialMedico = await HistorialMedico.findByIdAndDelete(req.params.id);
 
         if(!historialMedico) {
-            res.status(404).json({message: "Pago no encontrado"});
+            res.status(404).json({message: "HistorialMedico no encontrado"});
         }
 
-        res.json({message: "Pago eliminado"});
+        res.json({message: "HistorialMedico eliminado"});
     } catch (error) {
         res.status(400).json({message: error.message});
         
